@@ -1,13 +1,10 @@
+//Este código es original de Abel Agra(https://github.com/jfrancisco4490)
+//Usado con como herramienta para realizar ejercicios de la asignatura de Cloud Computing 2015 - 2016
+
 module.exports = {
 
 	// Permite el registro de una nueva empresa o institución
-	// **Parámetros de Entrada:**
-	// - **in_db**: identificador de la conexión a la base de datos
-	// - **in_id**: identificador de la empresa (único)
-	// - **in_nombre**: nombre completo de la intitución
-	// - **in_direc**: ubicación de la sede principal de la compañía
-	// - **in_area**: tipo de actividades a la que se dedica la empresa
-	// **Salida:** _true_ si el registro de la nueva empresa se ejecutó correctamente, _false_ si no
+	
 	crearEmpresa : function(in_db, in_id,in_nombre,in_direc,in_area){
 		in_db.run("INSERT INTO EMPRESA(identificador, nombre, direccion, area) VALUES ('"+in_id+"','"+in_nombre+"','"+in_direc+"','"+in_area+"')", function(err){
 		
@@ -24,9 +21,7 @@ module.exports = {
 	},
 
 	// Ordenar las empresas registradas según su valoración o calificaciones promedio.
-	// El orden se realiza de mayor a menor
-	// **Parámetros de Entrada:**
-	// - **in_db**: identificador de la conexión a la base de datos
+	
 	ranking : function(in_db){
 	
 		console.log("[RES] Ranking de Empresas: ");
@@ -38,10 +33,7 @@ module.exports = {
 		console.log("");
 	},
 
-	// Mostrar las calificaciones registradas para una determinada empresa o institución
-	// **Parámetros de Entrada:**
-	// - **in_db**: identificador de la conexión a la base de datos
-	// - **in_id**: identificador de la empresa a consultar sus calificaciones
+	
 	listarCalificaciones : function(in_db, in_id){
 		in_db.each("SELECT usuario AS usuario, valor AS calificacion FROM CALIFICACION WHERE identificador = '" + in_id +"' ORDER BY usuario", function(err, row){
 		
@@ -54,12 +46,7 @@ module.exports = {
 	},
 
 	// Registrar nueva calificacion o valoración de un usuario (estudiante) a una empresa
-	// **Parámetros de Entrada:**
-	// - **in_db**: identificador de la conexión a la base de datos
-	// - **in_id**: identificador de la empresa a calificar
-	// - **in_usr**: nombre de usuario del estudiante que realiza la valoración
-	// - **in_valor**: calificación numérica (1 a 5) para la empresa
-	// **Salida:** _true_ si el registro de la nueva calificación se ejecutó correctamente, _false_ si no
+	
 	crearCalificacion : function(in_db, in_id, in_usr, in_valor){
  
 		in_db.run("INSERT INTO CALIFICACION(identificador, usuario, valor) VALUES ('"+in_id+"','"+in_usr+"','"+in_valor+"')", function(err) {
@@ -86,11 +73,7 @@ module.exports = {
 	},
 
 	// Eliminar calificación particular asociada a una empresa o institución
-	// **Parámetros de Entrada:**
-	// - **in_db**: identificador de la conexión a la base de datos
-	// - **in_id**: identificador de la empresa a eliminar su calificación
-	// - **in_usr**: nombre de usuario del estudiante que realizó la valoración a eliminar
-	// **Salida:** _true_ si la eliminación de la calificación se ejecutó correctamente
+	
 	eliminarCalificacion : function(in_db, in_id, in_usr){
 		in_db.run("DELETE FROM CALIFICACION WHERE identificador = '"+ in_id + "' AND usuario = '" + in_usr + "'");
 		
