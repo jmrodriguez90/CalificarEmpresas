@@ -4,7 +4,7 @@
 var sqlite3 = require('sqlite3').verbose();
 
 // Cargar archivo de base de datos con los datos de prueba
-var db = new sqlite3.Database('../db/CC_calificacionEmpresa.db');
+var db = new sqlite3.Database('../base.db');
 
 // Cargar libreria de funciones de calificación de empresas
 var libCalif = require('./lib/CalificarEmpresas.js');
