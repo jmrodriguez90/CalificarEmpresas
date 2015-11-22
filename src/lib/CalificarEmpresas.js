@@ -1,5 +1,5 @@
 //Este código es original de Abel Agra(https://github.com/jfrancisco4490)
-//Usado con como herramienta para realizar ejercicios de la asignatura de Cloud Computing 2015 - 2016
+//Usado por José Manuel Rodríguez(https://github.com/jmrodriguez90) como herramienta para realizar ejercicios de la asignatura de Cloud Computing 2015 - 2016
 
 module.exports = {
 
