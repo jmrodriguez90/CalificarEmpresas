@@ -3,3 +3,5 @@ node_js:
     - "0.10"
     - "0.12"
     - "4.1"
+before_install:
+    - sqlite3 base.db < creacionTablasBD.sql
